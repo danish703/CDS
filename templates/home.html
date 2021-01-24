@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+
+	<!-- Basic Page Needs
+	================================================== -->
+	<meta charset="utf-8">
+	<title>{% block 'title' %}  {% endblock %} PCRS</title>
+	<meta name="description" content="Handyman - Job Board HTML Template - 1.0">
+
+
+	<!-- Mobile Specific Metas
+	================================================== -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+
+
+
+	<!-- CSS
+	================================================== -->
+	<!-- Base + Vendors CSS -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fonts/font-awesome/css/font-awesome.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fonts/entypo/css/entypo.css' %}">
+	<link rel="stylesheet" href="{% static 'vendor/owl-carousel/owl.carousel.css' %}" media="screen">
+	<link rel="stylesheet" href="{% static 'vendor/owl-carousel/owl.theme.css' %}" media="screen">
+	<link rel="stylesheet" href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" media="screen">
+	<link rel="stylesheet" href="{% static 'vendor/flexslider/flexslider.css' %}" media="screen">
+	<link rel="stylesheet" href="{% static 'vendor/job-manager/frontend.css' %}" media="screen">
+
+	<!-- Theme CSS-->
+	<link rel="stylesheet" href="{% static 'css/theme.css' %}">
+	<link rel="stylesheet" href="{% static 'css/theme-elements.css' %}">
+	<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+{% block 'body' %}
+	<div style="background-image: url('static/images/img.jpg');
+  background-attachment: fixed;
+  background-size: cover;">
+
+ <div class="container">
+
+
+	 <section class="page-content">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="box">
+								<h3>Paper Currency Recognition System</h3>
+								<form action="{% url 'analysis' %}" enctype="multipart/form-data" method="POST" role="form">
+									{% csrf_token %}
+									<div class="form-group">
+										<label>Select Image<span class="required">*</span></label>
+										<input type="file" class="image" name="image">
+									</div>
+									<p style="color:red;">{% if note %}
+									   Detected rupes note is {{note}}
+									{% endif %}</p>
+									<button type="submit" class="btn btn-primary btn-inline">Analyse</button>&nbsp; &nbsp; &nbsp;
+
+								</form>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</section>
+
+    </div>
+
+{% endblock %}
